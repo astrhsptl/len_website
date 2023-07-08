@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load static %}
+
+
+{% block main %}
+<h1>Затычка</h1>
+
+<h1>Товары</h1>
+<ul>
+{% for item in products %}
+    <li>{{ item.title }}</li>
+{% endfor %}
+</ul>
+
+{% endblock main %}

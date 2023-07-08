@@ -4,9 +4,23 @@
 
 {% block main %}
 <h1>Затычка</h1>
+<!-- 
+смену на инпут сделаем через display: none и window refresh
+ -->
 <ul>
     <li>{{ user_object.email }}</li>
     <li>{{ user_object.username }}</li>
     <li>{{ user_object.taxpayer }}</li>
 </ul>
+
+<h1>Товары</h1>
+<ul>
+{% for item in products %}
+    <li>{{ item.title }}</li>
+{% endfor %}
+</ul>
+
+{% if current_user == user_object %}
+    <button>create new product</button>
+{% endif %}
 {% endblock main %}

@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     'accounts.apps.AccountsConfig',
-    'pages.apps.PagesConfig'
+    'pages.apps.PagesConfig',
+    'API.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
