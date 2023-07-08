@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse_lazy
 
 from accounts.models import CustomUser
 
@@ -16,6 +17,10 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+    def get_absolute_url(self,):
+        return reverse_lazy('specific_news', kwargs={'pk': self.id})
 
     class Meta:
         verbose_name = 'Новость'
