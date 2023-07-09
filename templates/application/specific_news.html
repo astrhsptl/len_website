@@ -1,10 +1,17 @@
 {% extends "_base.html" %}
 {% load static %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/detail_news.css' %}">
+{% endblock styles %}
+
+{% block title %}{{ news.title }}{% endblock title %}     
 
 {% block main %}
+
     <h1>{{ news.title }}</h1>
     <p>{{ news.description }}</p>
     <img src="{{ news.image.url }}">
     <p>{{ news.date }}</p>
+
 {% endblock main %}
