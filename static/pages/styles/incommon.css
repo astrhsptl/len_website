@@ -14,6 +14,7 @@ a,
 a:link,
 a:visited {
     text-decoration: none;
+    color: black;
 }
 
 a:hover {
@@ -22,14 +23,14 @@ a:hover {
 
 
 .ctn {
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 1074px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    width: 74%;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media (max-width:1114px) {
+/* @media (max-width:1114px) {
     .ctn {
         width: 900px;
     }
@@ -45,15 +46,30 @@ a:hover {
     .ctn {
         width: 90%;
     }
+} */
+
+
+@media (max-width: 400px) {
+    .ctn {
+        width: 95%;
+        max-width: 95%;
+    }
 }
 
 /* ------------------------------in common classes------------------------------ */
 .container {
-    max-width: 80%;
-    width: fit-content;
+    max-width: 74%;
+    width: 74%;
     margin: 110px auto;
 }
 
+
+@media (max-width: 400px) {
+    .container {
+        width: 95%;
+        max-width: 95%;
+    }
+}
 
 
 /*---------------------------------HEADER--------------------------------------*/
