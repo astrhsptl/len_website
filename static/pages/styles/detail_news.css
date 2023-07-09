@@ -1,5 +1,6 @@
 .news-image__detail {
     margin: 36px 0;
+    border-radius: 10px;
 }
 
 .news-data__detail {

@@ -16,8 +16,13 @@ class NewsPageView(ListView):
     model = News
     template_name = 'application/news.html'
     context_object_name = 'news_list'
-    paginate_by = 10  # Количество новостей на странице
+    paginate_by = 1  # Количество новостей на странице
     ordering = ['-id']  # Сортировка по id публикации
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        current_page = context['page_obj'].number
+        return context
 
 
 class SpecificNewsView(DetailView):
