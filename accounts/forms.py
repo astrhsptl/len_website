@@ -45,7 +45,7 @@ class CustomUserCreationForm(UserCreationForm, forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form_line',
-                'placeholder': 'НИИ'
+                'placeholder': 'ИНН'
             }))
     class Meta(UserCreationForm.Meta):
         model = CustomUser
