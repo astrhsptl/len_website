@@ -1,26 +1,52 @@
 {% extends "_base.html" %}
 {% load static %}
 
+{% block title %}Document{% endblock title %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles/account.css' %}">
+<link rel="stylesheet" href="{% static 'styles/product.css' %}">
+{% endblock styles %}
+
 
 {% block main %}
-<h1>Затычка</h1>
+<!-- <h1>Затычка</h1> -->
 <!-- 
 смену на инпут сделаем через display: none и window refresh
  -->
-<ul>
-    <li>{{ user_object.email }}</li>
-    <li>{{ user_object.username }}</li>
-    <li>{{ user_object.taxpayer }}</li>
-</ul>
+ <div class="container">
 
-<h1>Товары</h1>
-<ul>
+ <div class="user-information">
+    <div class="info__perepheral">
+        <img class="user-avatar" src="{{ user_object.avatar.url }}" alt="">
+        <a href="#"><div class="info__written">Написать</div></a>
+    </div>
+    <div class="info__core">
+        <p class="person_information">{{ user_object.last_name }} {{ user_object.first_name }} {{ user_object.middle_name }} {% if current_user == user_object %}<img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />{% endif %}</p>
+        <p class="taxpayer">ИНН: {{ user_object.taxpayer }}</p>
+    </div>
+</div>
+
 {% for item in products %}
-    <li>{{ item.title }}</li>
+<div class="container__product">
+    <img class="image__product" src="{{ item.image.url }}" alt="">
+
+    <div class="product__info">
+        <div class="product-info__detail">
+            <p>{{ item.title }}</p>
+            <p class="product__price">от {{ item.price }} р. </p>
+        </div>
+        <div class="product-info__owner">
+            <p class="product__city">{{ item.city }}</p>
+            <p class="product__fio">{{ item.user.first_name }} {{ item.user.last_name }} <img src="{% static 'statics/mes__product.svg' %}" alt=""></p>
+        </div>
+    </div>
+</div>
 {% endfor %}
-</ul>
 
 {% if current_user == user_object %}
-    <button>create new product</button>
+    <button class="button__create"><div class="plus">+</div>Добавить услугу или товар</button>
 {% endif %}
+
+</div>
 {% endblock main %}
