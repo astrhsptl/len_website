@@ -53,7 +53,7 @@
 .product__fio > img {
     height: 20px;
     width: 20px;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 @media (max-width: 585px) {

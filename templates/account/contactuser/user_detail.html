@@ -6,6 +6,7 @@
 {% block styles %}
 <link rel="stylesheet" href="{% static 'styles/account.css' %}">
 <link rel="stylesheet" href="{% static 'styles/product.css' %}">
+<link rel="stylesheet" href="{% static 'styles/changing.css' %}">
 {% endblock styles %}
 
 
@@ -14,7 +15,10 @@
 <!-- 
 смену на инпут сделаем через display: none и window refresh
  -->
+ 
  <div class="container">
+
+{% include 'components/new_product_form.html' %}
 
  <div class="user-information">
     <div class="info__perepheral">
@@ -45,8 +49,10 @@
 {% endfor %}
 
 {% if current_user == user_object %}
-    <button class="button__create"><div class="plus">+</div>Добавить услугу или товар</button>
+    <button onclick="manageProductForm()" class="button__create"><div class="plus">+</div>Добавить услугу или товар</button>
 {% endif %}
 
 </div>
+
+<script src="{% static 'js/createProduct.js' %}"></script>
 {% endblock main %}
