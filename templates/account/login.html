@@ -17,11 +17,11 @@
             <h2 class="form_title">
                 Вход
             </h2>
-            <form action="#" class="active_form active_form_auth">
+            <form method="post" class="active_form active_form_auth">
                 {% csrf_token %}
-                <input class="form_line" type="text" placeholder="Почта">
-                <input class="form_line" type="text" placeholder="Пароль">
-                <input class="form_button main_button" type="submit" value="Войти">
+                <input id="id_login" name="login" placeholder="Почта или ник" class="form_line" />
+                <input id="id_password" name="password" type="password" placeholder="Пароль" class="form_line" />
+                <input type="submit" class="form_button main_button" value="Войти" />
             </form>
         </div>
     </div>
