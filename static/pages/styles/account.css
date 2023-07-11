@@ -51,6 +51,8 @@
     .img__update {
         height: 30px;
         width: 30px;
+
+        cursor: pointer;
     }
 }
 

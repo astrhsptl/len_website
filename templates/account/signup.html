@@ -15,7 +15,7 @@
                 {% csrf_token %}
                 {% for field in form %}
                     {% if field.label == 'Загрузить фото' %}
-                        {{ field.label_tag }}
+                        <label for="id_avatar">{{ field.label }}</label>
                     {% endif %}
 
                     {{ field }}

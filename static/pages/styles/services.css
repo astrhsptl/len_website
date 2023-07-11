@@ -1,0 +1,16 @@
+a, a:link, a:visited {
+    color: rgba(6, 17, 38, 0.5);
+}
+
+.flag-services {
+    color: rgba(6, 17, 38, 0.5);
+    font-size: 50px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    font-weight: 700;
+    width: fit-content;
+}
+
+.service__current {
+    color: black;
+}

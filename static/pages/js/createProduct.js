@@ -1,5 +1,11 @@
 const serverDomain = "http://127.0.0.1:8000/api/v1/docs/product/create/";
 
+document.getElementById("id_photo").oninput = function() {
+    let imgLabel = document.getElementById("image_container")
+    let img = document.getElementById("id_photo")
+    imgLabel.textContent = img.files[0].name 
+}
+
 function manageProductForm() {
     let form = document.getElementById("product__create").style
     let body = document.getElementsByTagName("body")[0]

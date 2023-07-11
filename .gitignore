@@ -4,3 +4,10 @@ example.env
 prod.env
 venv
 .idea
+
+
+API/__pycache__/*
+API/migrations/__pycache__/*
+
+pages/__pycache__/*
+pages/migrations/__pycache__/*

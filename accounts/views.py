@@ -1,7 +1,9 @@
 from typing import Any, Dict
+from django.urls import reverse_lazy
 from django.http import HttpRequest, HttpResponse
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, UpdateView
 
+from .forms import CustomUserChangeForm
 from .models import CustomUser 
 from pages.models import Products 
 
@@ -23,16 +25,9 @@ class UserListView(ListView):
     template_name = "account/contactuser/user_list.html"
     context_object_name = "products"
 
-class UserProductsListView(ListView):
-    model = Products
-    template_name = "account/contactuser/user_detail_products.html"
-    context_object_name = "products"
-
-    def get(self, request, pk):
-        return super().get(request)
-
-    def get_queryset(self,):
-        service = self.request.GET.get('service')
-        if service == "" or service == None:
-            return self.model.objects.filter(services="Товары", user__id=self.kwargs["pk"])
-        return self.model.objects.filter(services=service, user__id=self.kwargs["pk"])
+class UserUpdateView(UpdateView):
+    model = CustomUser
+    # fields = ("last_name", "first_name", "last_name", "avatar", "taxpayer")
+    form_class = CustomUserChangeForm
+    template_name = "account/contactuser/user_update.html"
+    success_url = reverse_lazy('homepage')
