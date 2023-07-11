@@ -79,6 +79,7 @@
         height: 100px;
         width: 67spx;
         border-radius: 40px;
+        align-self: center;
     }
 
     .product__fio > img {
