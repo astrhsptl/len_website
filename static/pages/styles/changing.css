@@ -3,10 +3,16 @@
 #product__create {
     display: none;
 
-    position: absolute;
+    position: fixed;
+    top: 4vh;
 
-    top: 80px;
+    /* top: 80px; */
     z-index: 5;
+}
+
+body {
+    overflow: visible;
+    
 }
 
 .close__form {
@@ -87,12 +93,21 @@
 }
 
 .form_button{
+    font-weight: 500;
     font-size: 30px;
-    background: #2D70F2; 
+
+    background: #2D70F2;
     color: #D7E3FC;
+
+    border-radius: 10px;
+    height: 70px;
+    width: 100%;
+    padding: 10px;
 }
 
+
 .form_button:hover{
+    color: #2D70F2;
     background: #D7E3FC;
 }
 

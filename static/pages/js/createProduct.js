@@ -2,20 +2,24 @@ const serverDomain = "http://127.0.0.1:8000/api/v1/docs/product/create/";
 
 function manageProductForm() {
     let form = document.getElementById("product__create").style
+    let body = document.getElementsByTagName("body")[0]
+
     if (form.display === "block") {
         form.display = "none";
+        body.style.overflow = "auto";
     } else {
+        body.style.overflow = "hidden";
         form.display = "block";
     }
 }
 
 function takeNumberic(event) {
-    // let regex = ;
     event.target.value = parseInt(event.target.value) || 0;
 }
 
 function closeForm() {
     document.getElementById("product__create").style.display = "none";
+    document.getElementsByTagName("body")[0].style.overflow = "auto";
 }
 
 async function sendData(event, id) {
