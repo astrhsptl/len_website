@@ -174,14 +174,21 @@ a:hover {
 .header_opened {
     display: none;
     position: absolute;
+    transform: translateX(100px);
     height: 100vh;
+    transition: all 100s linear;
+}
+
+.burger_state_open {
+    display: block;
+    transform: translateX(0px);
 }
 
 .header_opened_ctn {
     flex-direction: column;
     align-items: flex-start;
     padding-top: 17px;
-    height: 50%;
+    height: fit-content;
 }
 
 .header_main-row {

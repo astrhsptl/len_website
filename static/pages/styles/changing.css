@@ -26,8 +26,8 @@ body {
     height: 20px;
 
     color: white;
-    background-color:   rgba(242, 45, 80, 1);
-
+    background-color: rgba(242, 45, 80, 1);
+    transform: rotate(135deg);
     align-content: center;
     justify-items: center;    
 

@@ -26,7 +26,16 @@
         <a href="#"><div class="info__written">Написать</div></a>
     </div>
     <div class="info__core">
-        <p class="person_information">{{ user_object.last_name }} {{ user_object.first_name }} {{ user_object.middle_name }} {% if current_user == user_object %}<img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />{% endif %}</p>
+        <p class="person_information">
+            {{ user_object.last_name }} 
+            {{ user_object.first_name }} 
+            {{ user_object.middle_name }} 
+            {% if current_user == user_object %} 
+                <a href="{% url 'user_update' pk=user_object.pk %}">
+                    <img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />
+                </a>
+            {% endif %}
+        </p>
         <p class="taxpayer">ИНН: {{ user_object.taxpayer }}</p>
     </div>
 </div>

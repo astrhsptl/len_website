@@ -6,6 +6,7 @@
 
 {% block styles %}
 <link rel="stylesheet" href="{% static 'styles/homepage.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'styles/main.css' %}"> -->
 <style type="text/css">
     .main_section {
     background: url("{% static 'statics/main_background.png' %}");
@@ -22,11 +23,16 @@
             <h2 class="main_desc">
                 Площадка для кооперации и коммуникации между предприятиями и организациями Ленинского района
             </h2>
-            <a href="#" class="main_button">Зарегистрироваться</a>
+            <a href="{% url 'account_signup' %}" class="main_button">Зарегистрироваться</a>
         </section>
     </div>
     <div class="ctn banner_ctn">
-        <img src="{% static 'statics/banner.png' %}" alt="banner" class="banner">
+        <img src="{{ news.image.url }}" alt="banner" class="banner">
+        <div class="banner_text">
+            <p class="banner_date">{{ news.date }}</p>
+            <p class="banner_title"> {{ news.title }} </p>
+            <a href="{% url 'specific_news' pk=news.pk %}">Подробнее...</a>
+        </div>
     </div>
     <div class="ctn">
         <section class="rayon rayon_ctn">

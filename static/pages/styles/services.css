@@ -1,4 +1,4 @@
-a, a:link, a:visited {
+.flag-services > a, .flag-services > a:link, .flag-services > a:visited {
     color: rgba(6, 17, 38, 0.5);
 }
 
@@ -13,4 +13,13 @@ a, a:link, a:visited {
 
 .service__current {
     color: black;
+}
+
+@media (max-width: 545px) {
+    .flag-services {
+        font-size: 30px;
+        margin-bottom: 50px;
+        font-weight: 600;
+    }
+    
 }
