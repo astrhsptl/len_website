@@ -1,0 +1,148 @@
+.user-information {
+    display: flex;
+    font-size: 30px;
+    gap: 62px;
+
+    margin-bottom: 89px;
+}
+
+.info__core {
+    margin-top: 15px;
+}
+
+.taxpayer {
+    margin-top: 29px;
+}
+
+.info__written {
+    color: #2D70F2;
+    font-weight: 500;
+}
+
+.user-avatar {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+}
+
+.person_information {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.info__perepheral {
+    display: grid;
+
+    justify-items: center;
+    row-gap: 40px;
+}
+
+
+@media (max-width: 680px) {
+    .user-information {
+        font-size: 20px;
+        gap: 32px;
+    }
+
+    .person_information {
+        font-size: 30px;
+    }
+
+    .img__update {
+        height: 30px;
+        width: 30px;
+
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 740px) {
+    .user-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .user-information {
+        font-size: 15px;
+        gap: 28px;
+    }
+
+    .person_information {
+        font-size: 25px;
+    }
+
+    .img__update {
+        height: 25px;
+        width: 25px;
+    }
+
+    .taxpayer {
+        margin-top: 17px;
+    }
+
+    .info__written {
+        margin-bottom: 25px;
+    }
+}
+
+
+.button__create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90px;
+    width: 100%;
+    
+    background-color: #D7E3FC;
+    color: #062D78;
+    
+    border-radius: 25px;
+
+    gap: 76px;
+
+    font-size: 40px;
+}
+
+.plus {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    color: #D7E3FC;
+    background-color: #062D78;
+
+    border-radius: 50%;
+
+    height: 50px;
+    width: 50px;
+
+    font-size: 46px;
+}
+
+@media (max-width: 965px) {
+    .button__create {
+        font-size: 30px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 670px) {
+    .button__create {
+        font-size: 20px;
+        gap: 15px;
+    } 
+
+    .plus {
+        height: 28px;
+        width: 28px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 458px) {
+    .plus {
+        display: none;
+    }  
+}

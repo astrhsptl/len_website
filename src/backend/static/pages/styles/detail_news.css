@@ -1,0 +1,20 @@
+.news-image__detail {
+    margin: 36px 0;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.news-data__detail {
+    margin-bottom: 18px;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.news-description__detail {
+    font-size: 26px;
+}
+
+.news-title__detail {
+    font-size: 50px;
+}

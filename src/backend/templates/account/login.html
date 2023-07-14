@@ -1,0 +1,29 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'styles/interaction_with_accounts.css' %}">
+{% endblock styles %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
+{% endblock head %}
+
+{% block main %}
+        <div class="ctn form_ctn">
+        <div class="form autorization_form">
+            <h2 class="form_title">
+                Вход
+            </h2>
+            <form method="post" class="active_form active_form_auth">
+                {% csrf_token %}
+                <input id="id_login" name="login" placeholder="Почта или ник" class="form_line" />
+                <input id="id_password" name="password" type="password" placeholder="Пароль" class="form_line" />
+                <input type="submit" class="form_button main_button" value="Войти" />
+            </form>
+        </div>
+    </div>
+
+{% endblock main %}

@@ -1,0 +1,22 @@
+<div class="ctn" id="product__create">
+    <div class="close__form" onclick="closeForm()">+</div>
+    <div class="form">
+        <h2 class="form_title">
+            Добавить продукцию
+        </h2>
+        <form action="#" onsubmit="sendData(event, '{{ user_object.id }}')" class="active_form">
+            <input class="form_line" type="text" placeholder="Название" name="title" />
+            <input class="form_line" type="text" placeholder="Цена" name="price" oninput="takeNumberic(event)"  />
+            <input class="form_line" type="text" placeholder="Место" name="city" />
+            <div class="form_line form-image__container" id="image_container">
+                Изображение...
+                <input id="id_photo" class="form_line form__image" type="file" accept="image/*" name="image" />
+            </div>
+            <select class="form_line" name="services" id="selected_id">
+                <option value="Услуги">Услуга</option>
+                <option value="Товары">Товар</option>
+            </select>
+            <button class="form_button" type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
