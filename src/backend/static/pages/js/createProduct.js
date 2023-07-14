@@ -4,6 +4,7 @@ document.getElementById("id_photo").oninput = function() {
     let imgLabel = document.getElementById("image_container")
     let img = document.getElementById("id_photo")
     imgLabel.textContent = img.files[0].name 
+    imgLabel.style.color = "rgba(6, 45, 120, 0.9)";
 }
 
 function manageProductForm() {

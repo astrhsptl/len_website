@@ -23,7 +23,7 @@
  <div class="user-information">
     <div class="info__perepheral">
         <img class="user-avatar" src="{{ user_object.avatar.url }}" alt="">
-        <a href="#"><div class="info__written">Написать</div></a>
+        <a href="{{ user_object.telegram_url }}"><div class="info__written">Написать</div></a>
     </div>
     <div class="info__core">
         <p class="person_information">
@@ -58,7 +58,13 @@
 {% endfor %}
 
 {% if current_user == user_object %}
-    <button onclick="manageProductForm()" class="button__create"><div class="plus">+</div>Добавить услугу или товар</button>
+    <button onclick="manageProductForm()" class="button__create">
+        <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus">
+            <circle cx="44" cy="44" r="44" fill="#062D78"/>
+            <rect x="20.9111" y="40.0792" width="46.1782" height="7.84158" rx="3.92079" fill="#D9D9D9"/>
+            <rect x="47.9209" y="20.9109" width="46.1782" height="7.84158" rx="3.92079" transform="rotate(90 47.9209 20.9109)" fill="#D9D9D9"/>
+        </svg>
+        Добавить услугу или товар</button>
 {% endif %}
 
 </div>

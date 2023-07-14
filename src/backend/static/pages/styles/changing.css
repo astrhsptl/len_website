@@ -10,6 +10,13 @@
     z-index: 5;
 }
 
+
+#selected_id {
+	appearance: none;
+}
+
+
+
 body {
     overflow: visible;
     
@@ -72,9 +79,14 @@ body {
 }
 
 .form-image__container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    align-content: center;
     position: relative; 
     color: rgba(6, 45, 120, 0.5);
     text-align: left;
+    font-weight: 400;
 }
 
 .form__image {

@@ -56,5 +56,5 @@ class ProductsListView(ListView):
     def get_queryset(self,):
         current_path = self.request.path
         if current_path == "/products/":
-            return self.model.objects.filter(services="Товары")
-        return self.model.objects.filter(services="Услуги")
+            return self.model.objects.filter(services="Товары", is_moderated=True)
+        return self.model.objects.filter(services="Услуги", is_moderated=True)

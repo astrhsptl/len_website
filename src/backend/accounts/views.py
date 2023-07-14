@@ -15,7 +15,7 @@ class UserDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["products"] = Products.objects.filter(user=context["user_object"])
+        context["products"] = Products.objects.filter(user=context["user_object"], is_moderated=True)
         context["current_user"] = self.request.user
         return context
 

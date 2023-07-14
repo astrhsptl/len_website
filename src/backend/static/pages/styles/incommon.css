@@ -173,7 +173,7 @@ a:hover {
 
 .header_opened {
     display: none;
-    position: absolute;
+    position: fixed;
     transform: translateX(100px);
     height: 100vh;
     transition: all 100s linear;

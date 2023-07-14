@@ -33,6 +33,7 @@ class Products(models.Model):
     city = models.CharField(max_length=255, verbose_name="Местоположение")
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name="Пользователь")
     services = models.CharField(max_length=255, verbose_name="Услуги", choices=SERVICES)
+    is_moderated = models.BooleanField(blank=True, null=True, default=False)
     image = models.FileField(upload_to='products', verbose_name='Фотография', blank=True, null=True)
 
     def __str__(self):

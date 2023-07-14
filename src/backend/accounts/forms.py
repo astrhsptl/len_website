@@ -40,6 +40,14 @@ class CustomUserCreationForm(UserCreationForm, forms.Form):
             'placeholder': 'Почта'
         }))
 
+    telegram_url = forms.URLField(
+        required=True, label=None,
+        widget=forms.URLInput(
+            attrs={
+                'class': 'form_line',
+                'placeholder': 'Telegram'
+            }))
+
     avatar = forms.ImageField(
         required=True, label='Загрузить фото',
         widget=forms.FileInput(attrs={
@@ -60,7 +68,7 @@ class CustomUserCreationForm(UserCreationForm, forms.Form):
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'first_name','middle_name', 'last_name', 'email', 'avatar', 'taxpayer',)
+        fields = ('username', 'first_name','middle_name', 'last_name', 'telegram_url', 'email', 'avatar', 'taxpayer',)
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -93,6 +101,14 @@ class CustomUserChangeForm(UserChangeForm):
             'class': 'main_button form_button',
         }))
 
+    telegram_url = forms.URLField(
+        required=True, label=None,
+        widget=forms.URLInput(
+            attrs={
+                'class': 'form_line',
+                'placeholder': 'Telegram'
+            }))
+
     taxpayer = forms.IntegerField(
         min_value=1, max_value=99999999999999, required=True, label=None,
         widget=forms.TextInput(
@@ -105,5 +121,5 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ('last_name', 'first_name','middle_name', 'avatar', 'taxpayer',)
+        fields = ('last_name', 'first_name','middle_name', 'telegram_url', 'avatar', 'taxpayer',)
 
