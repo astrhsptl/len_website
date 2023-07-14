@@ -1,0 +1,59 @@
+version: "3"
+services:
+  traefik:
+    image: traefik:latest
+    restart: unless-stopped
+    networks:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.traefik.service=traefik"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+    command: --api.insecure=true --providers.docker
+  postgresql:
+    image: postgres:15-alpine
+    container_name: postgresql
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - web
+  businessman:
+      build:
+        dockerfile: src/backend/Dockerfile
+        context: .
+      command: >
+        sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn settings.wsgi:application --bind 0.0.0.0:8000"
+      volumes:
+        - static:/app/staticfiles
+        - media:/app/media
+      labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=web"
+        - "traefik.http.routers.businessman.rule=Host(`businessman.localhost`)"
+        - "traefik.http.services.businessman.loadbalancer.server.port=8000"
+      networks:
+        - web
+      environment:
+        SECRET_KEY: django-insecure-oe_gb=p9(u7p4+p0i)fz7ted-toqunxt(nzwqsi!cvdg%v=u*c
+        POSTGRES_DB: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_HOST: postgresql
+        POSTGRES_PORT: 5432
+volumes:
+  static:
+  media:
+networks:
+  web:
+    external: true

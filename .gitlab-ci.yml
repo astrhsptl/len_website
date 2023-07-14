@@ -1,0 +1,33 @@
+
+image: docker:stable
+
+stages:
+  - stage
+  - push
+  - release
+
+before_script:
+  - echo -n $HARBOR_PASSWORD | docker login -u $HARBOR_USERNAME --password-stdin $HARBOR_URL
+
+build-images:
+  stage: stage
+  script:
+    - docker image build -t hub.kulpinov.site/library/businessman:${CI_COMMIT_SHA:0:8} -f src/backend/Dockerfile .
+    - docker tag hub.kulpinov.site/library/businessman:${CI_COMMIT_SHA:0:8} hub.kulpinov.site/library/businessman:dev
+  tags:
+    - shell
+
+push-images:
+  stage: push
+  script:
+    - docker push hub.kulpinov.site/library/businessman:dev
+  tags:
+    - shell
+
+release-images:
+  stage: release
+  script:
+    - docker tag hub.kulpinov.site/library/businessman:${CI_COMMIT_SHA:0:8} hub.kulpinov.site/library/businessman:latest
+    - docker push hub.kulpinov.site/library/businessman:latest
+  tags:
+    - shell
