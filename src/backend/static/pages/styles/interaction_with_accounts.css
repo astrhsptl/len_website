@@ -103,7 +103,7 @@ label {
 }
 
 .logout_form{
-    height: 550px;
+    height: fit-content;
 }
 
 .active_form_logout{
@@ -152,10 +152,10 @@ label {
     .autorization_form{
         height: 400px;
     }
-
+/* 
     .logout_form{
         height: 300px;
-    }
+    } */
 
     .form_button{
         font-size: 20px;
@@ -186,10 +186,10 @@ label {
     .autorization_form{
         height: 300px;
     }
-
+/* 
     .logout_form{
         height: 250px;
-    }
+    } */
 
     .form_button{
         font-weight: 500;
@@ -200,6 +200,7 @@ label {
 .yes_button{
     background-color: #2D70F2;
     color: #D7E3FC;
+    margin-bottom: 20px;
 }
 
 .no_button{
