@@ -1,5 +1,5 @@
 <div class="ctn" id="product__create">
-    <svg width="20" height="20" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="close__form" onclick="closeForm()">
+    <svg width="20" height="20" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="close__form" onclick="manageProductForm()">
         <circle cx="44" cy="44" r="44" fill="#F22D50"/>
         <rect x="20.9111" y="40.0792" width="46.1782" height="7.84158" rx="3.92079" fill="#D9D9D9"/>
         <rect x="47.9209" y="20.9109" width="46.1782" height="7.84158" rx="3.92079" transform="rotate(90 47.9209 20.9109)" fill="#D9D9D9"/>
@@ -8,7 +8,7 @@
         <h2 class="form_title">
             Добавить продукцию
         </h2>
-        <form action="#" onsubmit="sendData(event, '{{ user_object.id }}')" class="active_form">
+        <form action="#" onsubmit="createNewProduct(event, '{{ user_object.id }}')" class="active_form">
             <input class="form_line" type="text" placeholder="Название" name="title" />
             <input class="form_line" type="text" placeholder="Цена" name="price" oninput="takeNumberic(event)"  />
             <input class="form_line" type="text" placeholder="Место" name="city" />

@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="{% static 'styles/changing.css' %}">
 {% endblock styles %}
 
-
 {% block main %}
 <!-- <h1>Затычка</h1> -->
 <!-- 
@@ -22,21 +21,37 @@
 
  <div class="user-information">
     <div class="info__perepheral">
-        <img class="user-avatar" src="{{ user_object.avatar.url }}" alt="">
+        {% if user_object.avatar %}
+            <img class="user-avatar" src="{{ user_object.avatar.url }}" alt="">
+        {% else %}
+            <img class="user-avatar" src="{% static 'statics/avatar.webp' %}" alt="">
+        {% endif %}
         <a href="{{ user_object.telegram_url }}"><div class="info__written">Написать</div></a>
     </div>
     <div class="info__core">
         <p class="person_information">
-            {{ user_object.last_name }} 
-            {{ user_object.first_name }} 
-            {{ user_object.middle_name }} 
+            {% if user_object.last_name %} 
+                {{ user_object.last_name }} 
+            {% else %} 
+                Неизвестно 
+            {% endif %}
+            {% if user_object.first_name %} 
+                {{ user_object.first_name }} 
+            {% else %} 
+                Неизвестно 
+            {% endif %}
+            {% if user_object.middle_name %} 
+                {{ user_object.middle_name }} 
+            {% else %} 
+                Неизвестно 
+            {% endif %}
             {% if current_user == user_object %} 
                 <a href="{% url 'user_update' pk=user_object.pk %}">
                     <img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />
                 </a>
             {% endif %}
         </p>
-        <p class="taxpayer">ИНН: {{ user_object.taxpayer }}</p>
+        <p class="taxpayer">ИНН: {% if user_object.taxpayer %} {{ user_object.taxpayer }} {% else %} Неизвестно {% endif %}</p>
     </div>
 </div>
 
@@ -58,7 +73,7 @@
 {% endfor %}
 
 {% if current_user == user_object %}
-    <button onclick="manageProductForm()" class="button__create">
+    <button class="button__create" id="product__create-button" onclick="manageProductForm()">
         <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="plus">
             <circle cx="44" cy="44" r="44" fill="#062D78"/>
             <rect x="20.9111" y="40.0792" width="46.1782" height="7.84158" rx="3.92079" fill="#D9D9D9"/>
@@ -69,7 +84,9 @@
 
 </div>
 
-<script src="{% static 'js/createProduct.js' %}"></script>
-<script src="{% static 'js/register.js' %}"></script>
+{% block script %}
+    <script src="{% static 'js/createProduct.js' %}"></script>
+    <script src="{% static 'js/api.js' %}"></script>
+{% endblock script %}
 
 {% endblock main %}
