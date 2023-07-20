@@ -1,0 +1,33 @@
+{% load static %}
+
+<nav class="preload" id="burger_opened">        
+    <div class="container header__content header_main-row">
+        <img src="{% static 'statics/logo.svg' %}" alt="logo" class="header_logo">
+        <div class="burger_menu" onclick="closeHeaderMenu()" >
+            <svg viewBox="0 0 34 34" fill="none" class="header_logo" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.000244141" y="27.9601" width="39" height="8" rx="2"
+                    transform="rotate(-45 0.000244141 27.9601)" fill="#2D70F2" />
+                <rect x="5.65686" width="39" height="8" rx="2" transform="rotate(45 5.65686 0)"
+                    fill="#2D70F2" />
+            </svg>
+
+        </div>
+    </div>
+
+    <div class="header_navbar container">
+        <a href="{% url 'homepage' %}" class="header_navbar-link">О проекте</a>
+        <a href="{% url 'products_list' %}" class="header_navbar-link">Товары</a>
+        <a href="{% url 'services_list' %}" class="header_navbar-link">Услуги</a>
+        <a href="{% url 'news_page' %}" class="header_navbar-link">Новости</a>
+        <a href="{% url 'user_list' %}" class="header_navbar-link">Предприниматели</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'user_detail' pk=user.pk %}" class="header_navbar-link">Личный кабинет</a>
+            <a href="{% url 'account_logout' %}" class="header_navbar-link">Выход</a>
+        {% else %}
+            <a href="{% url 'account_login' %}" class="header_navbar-link">Вход</a>
+            <a href="{% url 'account_signup' %}" class="header_navbar-link">Регистрация</a>
+        {% endif %}
+    </div>
+
+</div>
+</nav>

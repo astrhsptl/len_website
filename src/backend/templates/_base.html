@@ -2,35 +2,41 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    {% block script %}
-    {% endblock script %}
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="{% static 'js/menu.js' %}"></script>
         
     <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'styles/incommon.css' %}">
+    
+    <script src="{% static 'js/menu.js' %}"></script>
+    
     {% block styles %}
     {% endblock styles %}
-    <title>{% block title %} {% endblock title %}</title>   
+    <title>{% block title %}Название страницы{% endblock title %}</title>   
 </head>
 <body>
 
-{% include "components/header.html" %}
+    {% include "components/navbar.html" %} 
+
+<div class="main">
+
+    {% include "components/header.html" %} 
 
 
+    <div class="main-content container">
+        {% block main %}
 
-    {% block main %}
-    <div class="main">
+        {% endblock main %}
+    </div> 
 
-    </div>
-    {% endblock main %}
+    {% include "components/footer.html" %} 
 
-{% include "components/footer.html" %}
-
+    {% block script %}
+    {% endblock script %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+</div> 
 </body>
 </html>

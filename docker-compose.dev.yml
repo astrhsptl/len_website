@@ -5,9 +5,9 @@ services:
     restart: unless-stopped
     networks:
       - web
-    ports:
-      - "80:80"
-      - "443:443"
+    # ports:
+    #   - "80:80"
+    #   - "443:443"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -33,7 +33,7 @@ services:
         dockerfile: src/backend/Dockerfile
         context: .
       command: >
-        sh -c "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn settings.wsgi:application --bind 0.0.0.0:8000"
+        sh -c "python manage.py migrate && python manage.py collectstatic --noinput && python manage.py runserver"
       volumes:
         - static:/app/staticfiles
         - media:/app/media

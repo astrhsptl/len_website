@@ -1,4 +1,4 @@
-<div class="ctn" id="product__create">
+<div class="" id="product__create">
     <svg width="20" height="20" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" class="close__form" onclick="manageProductForm()">
         <circle cx="44" cy="44" r="44" fill="#F22D50"/>
         <rect x="20.9111" y="40.0792" width="46.1782" height="7.84158" rx="3.92079" fill="#D9D9D9"/>
@@ -12,15 +12,15 @@
             <input class="form_line" type="text" placeholder="Название" name="title" />
             <input class="form_line" type="text" placeholder="Цена" name="price" oninput="takeNumberic(event)"  />
             <input class="form_line" type="text" placeholder="Место" name="city" />
-            <div class="form_line form-image__container" id="image_container">
-                Изображение
-                <input id="id_photo" class="form_line form__image" type="file" accept="image/*" name="image" />
-            </div>
             <select class="form_line" name="services" id="selected_id">
                 <option value="Услуги">Услуга</option>
                 <option value="Товары">Товар</option>
             </select>
-            <button class="form_button" type="submit">Добавить</button>
+            <input id="id_avatar" class="form_line" type="file" accept="image/*" name="image" />
+            <label id="avatar_label" for="id_avatar">
+                Изображение
+            </label>
+            <button class="form_button main_button" type="submit">Добавить</button>
         </form>
     </div>
 </div>

@@ -13,24 +13,31 @@
 
 <div class="container container__news">
 
+<p class="flag-services">Новости Ленинского района</p>
+
+<a href="{% url 'specific_news' main_news.id %}">
 <div class="news_list main_news">
     <img class="list_img__main" src="{{ main_news.image.url }}" />
     <p class="list_date__main">{{ main_news.date }}</p>
-    <p class="list_title__main"><a href="{% url 'specific_news' main_news.id %}">{{ main_news.title }}</a></p>
+    <p class="list_title__main">{{ main_news.title }}</p>
 </div>
+</a>
 
 <div class="container__subnews">
     
 {% for news in news_list %}
     <div class="news_list sub_news">
+        <a href="{% url 'specific_news' news.id %}">
         <img class="list_img__sub" src="{{ news.image.url }}">
         <p class="list_date__sub">{{ news.date }}</p>
-        <p class="list_title__sub"><a href="{% url 'specific_news' news.id %}">{{ news.title }}</a></p>
+        <p class="list_title__sub">{{ news.title }}</p>
+        </a>
     </div>
 {% endfor %}
 </div>
 
 <div class="paginator">
+
 {% if is_paginated %}
 
     {% if page_obj.paginator.page_range|length < 5 %}

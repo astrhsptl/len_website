@@ -10,21 +10,40 @@
 
 
 {% block main %}
-<div class="container">
+<div class="container container__margin">
 
 <p class="headline">Пользователи</p>
-{% for user in users %}
-    <a href="{% url 'user_detail' pk=user.pk %}">
-    <div class="container__user">
-        <img src="{{ user.avatar.url }}" class="image__user" alt="">
-        <div class="user-fio">
-            {{ user.last_name }}
-            {{ user.first_name }}
-            {{ user.middle_name }}
-        </div>
+
+<section class="businessmen">
+    <div class="businessmen_ctn">
+        {% for user in users %}
+                <div class="businessmen_card">
+                    <a href="{% url 'user_detail' pk=user.pk %}">
+                    <img src="{{ user.avatar.url }}" alt="" class="businessmen_img">
+                    </a>
+                    <div class="businessmen_text">
+                        <h3 class="businessmen_name">
+                            {% if user.last_name %} 
+                                {{ user.last_name }} 
+                            {% else %} 
+                                Неизвестно 
+                            {% endif %}
+                            {% if user.first_name %} 
+                                {{ user.first_name }} 
+                            {% else %} 
+                                Неизвестно 
+                            {% endif %}
+                            {% if user.middle_name %} 
+                                {{ user.middle_name }} 
+                            {% endif %}
+                        </h3>
+                        <a href="{{ user.trelegram_url }}"><p class="businessmen_telegram">Telegram</p></a>
+                        <p class="businessmen_inn">ИНН: {{ user.taxpayer }} </p>
+                    </div>
+                </div>
+        {% endfor %}
     </div>
-    </a>
-{% endfor %}
+</section>
 
 <div class="paginator">
     {% if is_paginated %}

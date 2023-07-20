@@ -1,8 +1,4 @@
 env/
-.env
-example.env
-prod.env
-venv
 .idea
 
 

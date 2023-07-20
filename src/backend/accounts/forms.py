@@ -52,7 +52,7 @@ class CustomUserCreationForm(UserCreationForm, forms.Form):
         required=True, label='Загрузить фото',
         widget=forms.FileInput(attrs={
             'for': 'profile',
-            'class': 'main_button form_button',
+            'class': 'form_image_input',
         }))
 
     taxpayer = forms.IntegerField(
@@ -68,7 +68,7 @@ class CustomUserCreationForm(UserCreationForm, forms.Form):
 
     class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'first_name','middle_name', 'last_name', 'telegram_url', 'email', 'avatar', 'taxpayer',)
+        fields = ('username', 'first_name','middle_name', 'last_name', 'telegram_url', 'email', 'taxpayer', 'password1', 'password2', 'avatar',)
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -121,5 +121,5 @@ class CustomUserChangeForm(UserChangeForm):
 
     class Meta:
         model = CustomUser
-        fields = ('last_name', 'first_name','middle_name', 'telegram_url', 'avatar', 'taxpayer',)
+        fields = ('last_name', 'first_name','middle_name', 'telegram_url', 'taxpayer', 'avatar')
 

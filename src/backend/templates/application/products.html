@@ -7,10 +7,17 @@
 <link rel="stylesheet" href="{% static 'styles/services.css' %}">
 {% endblock styles %}
 
+{% block title %}
+{% if is_products %}
+Товары
+{% else %}
+Услуги 
+{% endif %}
+{% endblock title %}
 
 
 {% block main %}
-<div class="container">
+<div class="container container__margin">
 
 <p class="flag-services">
     {% if is_products %}
@@ -35,7 +42,21 @@
         </div>
         <div class="product-info__owner">
             <p class="product__city">{{ item.city }}</p>
-            <p class="product__fio">{{ item.user.first_name }} {{ item.user.last_name }} <img src="{% static 'statics/mes__product.svg' %}" alt=""></p>
+            <a href="{{ item.user.telegram_url }}">
+                <p class="product__fio">
+                    {% if item.user.last_name %} 
+                        {{ item.user.last_name }} 
+                    {% else %} 
+                        Неизвестно 
+                    {% endif %}
+                    {% if item.user.first_name %} 
+                        {{ item.user.first_name }} 
+                    {% else %} 
+                        Неизвестно 
+                    {% endif %}
+                    <img src="{% static 'statics/mes__product.svg' %}" alt="">
+                </p>
+            </a>
         </div>
     </div>
 </div>

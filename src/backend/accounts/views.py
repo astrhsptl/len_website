@@ -24,7 +24,7 @@ class UserListView(ListView):
     queryset = CustomUser.objects.filter(is_staff=False)
     template_name = "account/contactuser/user_list.html"
     context_object_name = "users"
-    paginate_by = 3
+    paginate_by = 5
 
 class UserUpdateView(UpdateView):
     model = CustomUser

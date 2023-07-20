@@ -6,16 +6,12 @@
 {% block styles %}
 <link rel="stylesheet" href="{% static 'styles/account.css' %}">
 <link rel="stylesheet" href="{% static 'styles/product.css' %}">
-<link rel="stylesheet" href="{% static 'styles/changing.css' %}">
+<link rel="stylesheet" href="{% static 'styles/interaction_with_accounts.css' %}">
 {% endblock styles %}
 
 {% block main %}
-<!-- <h1>Затычка</h1> -->
-<!-- 
-смену на инпут сделаем через display: none и window refresh
- -->
  
- <div class="container">
+<div class="container container__margin">
 
 {% include 'components/new_product_form.html' %}
 
@@ -42,13 +38,11 @@
             {% endif %}
             {% if user_object.middle_name %} 
                 {{ user_object.middle_name }} 
-            {% else %} 
-                Неизвестно 
             {% endif %}
             {% if current_user == user_object %} 
-                <a href="{% url 'user_update' pk=user_object.pk %}">
-                    <img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />
-                </a>
+                <!-- <a href="{% url 'user_update' pk=user_object.pk %}"> -->
+                <img class="img__update" src="{% static 'statics/writing-icon.svg' %}" />
+                <!-- </a> -->
             {% endif %}
         </p>
         <p class="taxpayer">ИНН: {% if user_object.taxpayer %} {{ user_object.taxpayer }} {% else %} Неизвестно {% endif %}</p>
@@ -79,13 +73,14 @@
             <rect x="20.9111" y="40.0792" width="46.1782" height="7.84158" rx="3.92079" fill="#D9D9D9"/>
             <rect x="47.9209" y="20.9109" width="46.1782" height="7.84158" rx="3.92079" transform="rotate(90 47.9209 20.9109)" fill="#D9D9D9"/>
         </svg>
-        Добавить услугу или товар</button>
+        Добавить продукт</button>
 {% endif %}
 
 </div>
 
 {% block script %}
     <script src="{% static 'js/createProduct.js' %}"></script>
+    <script src="{% static 'js/register.js' %}"></script>
     <script src="{% static 'js/api.js' %}"></script>
 {% endblock script %}
 

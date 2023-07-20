@@ -5,9 +5,17 @@
 <link rel="stylesheet" href="{% static 'styles/interaction_with_accounts.css' %}">
 {% endblock styles %}
 
+{% block title %}Обновление данных аккаунта{% endblock title %}
+
+{% block script %}
+<script src="{% static 'js/register.js' %}"></script>
+<script src="{% static 'js/api.js' %}"></script>
+
+{% endblock script %}
+
 {% block main %}
 
-<div class="container form_ctn">
+<div class="container container__form">
     <div class="form">
         <h2 class="form_title">
             Изменение данных
@@ -31,7 +39,5 @@
         </form>
     </div>
 </div>
-
-<script src="{% static 'js/register.js' %}"></script>
 
 {% endblock main %}
