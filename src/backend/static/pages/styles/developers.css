@@ -1,0 +1,88 @@
+.card__developer {
+    background-color: #D7E3FC;
+    max-width: 310px;
+    width: 310px;
+    height: 624px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.image__developers {
+    width: 100%;
+    height: 50%;
+    max-height: 50%;
+    object-fit: cover;
+    max-width: 100%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.container__developers {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.developer__fio {
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.developer__about {
+    color: #000;
+    font-size: 18px;
+}
+
+.resume__developer {
+    font-size: 20px;
+    color: #4C66C1 !important;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.dev__text__container {
+    margin: 0 auto;
+    width: 90%;
+
+    height: 40%;
+    margin-top: 20px;
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1000px) {
+    .developer__fio {
+        font-size: 20px;
+    }
+    .developer__about {
+        font-size: 16px;
+    }
+
+    .resume__developer {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .card__developer {
+        width: 100%;
+        height: fit-content;
+        margin-right: 0px;
+    }
+    
+    .developer__fio {
+        font-size: 16px;
+    }
+    .developer__about {
+        font-size: 14px;
+    }
+
+    .resume__developer {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}

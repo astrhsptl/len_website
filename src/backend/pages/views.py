@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView
 
 from .models import News, Products
-
+from .context import DEVELOPERS
 
 class HomePageView(TemplateView):
     template_name = "application/homepage.html"
@@ -10,6 +10,15 @@ class HomePageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['news'] = News.objects.latest('id')
+        return context
+
+
+class WorkersPageView(TemplateView):
+    template_name = "application/developers.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["developers"] = DEVELOPERS
         return context
 
 
